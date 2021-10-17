@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--<context:property-placeholder location="classpath:db.properties" ignore-unresolvable="true"/>-->
+
+    <!--<bean id="tomcatJdbcDataSourceFactory" class="com.rxy.db"/>-->
+
+    <!--新数据源-->
+    <!--<bean id="dataSource" class="com.qunar.fintech.util.datasource2.FinDataSource">-->
+        <!--<constructor-arg index="0" type="java.lang.String" value="classpath://db.properties"/>-->
+        <!--<constructor-arg index="1" type="java.lang.String" value="db"/>-->
+    <!--</bean>-->
+
+    <!-- 事务处理 -->
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--事务模板 -->
+    <!--<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">-->
+        <!--<property name="transactionManager" ref="transactionManager"/>-->
+    <!--</bean>-->
+
+    <!-- mybatis整合spring的配置 -->
+    <!--<bean id="sqlSessionFactory" class="com.qunar.fintech.util.mybatis.MonitoredSqlSessionFactory"-->
+          <!--name="sqlSessionFactory">-->
+        <!--<constructor-arg index="0">-->
+            <!--<bean class="org.mybatis.spring.SqlSessionFactoryBean">-->
+                <!--&lt;!&ndash; dataSource用于指定mybatis的数据源 &ndash;&gt;-->
+                <!--<property name="dataSource" ref="dataSource"/>-->
+                <!--&lt;!&ndash; mapperLocations用于指定mybatis中mapper文件所在的位置 &ndash;&gt;-->
+                <!--<property name="mapperLocations" value="classpath:sqlmaps/*.xml"/>-->
+                <!--<property name="typeHandlersPackage" value="com.qunar.fintech.dory.dao.enums.handler"/>-->
+                <!--&lt;!&ndash; 自动重命名 &ndash;&gt;-->
+                <!--<property name="typeAliasesPackage" value="com.qunar.fintech.dory.dao.entity"/>-->
+            <!--</bean>-->
+        <!--</constructor-arg>-->
+        <!--<constructor-arg index="1" value="fintech_dory"/>-->
+    <!--</bean>-->
+
+    <!--批量注册mybatis中的dao。 使用这种方式，Dao的实现就不会被调用 -->
+    <!--<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.qunar.fintech.dory.dao.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+    <!--</bean>-->
+
+</beans>
